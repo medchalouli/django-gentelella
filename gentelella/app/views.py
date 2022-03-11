@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
-
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     context = {}
     template = loader.get_template('app/index.html')
     return HttpResponse(template.render(context, request))
 
-
+@csrf_exempt
 def gentella_html(request):
     context = {}
     # The template to be loaded as per gentelella.
